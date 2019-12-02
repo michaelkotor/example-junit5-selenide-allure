@@ -1,38 +1,11 @@
-import com.codeborne.selenide.Configuration;
+import base.BaseTest;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 
-@Execution(ExecutionMode.CONCURRENT)
-public class TestClass {
-    @BeforeAll
-    public static void config() {
-        Configuration.screenshots = true;
-        Configuration.savePageSource = false;
-        Configuration.timeout = 10000;
-        Configuration.browser = "chrome";
-        Configuration.headless = false;
-        Configuration.browserSize = "1920x1080";
-    }
-
-    @BeforeEach
-    public void add() {
-        SelenideLogger.addListener("Allure", new AllureSelenide().screenshots(true).savePageSource(false));
-    }
-
-    @AfterEach
-    public void delete() {
-       SelenideLogger.removeListener("Allure");
-    }
+public class TestClass extends BaseTest {
 
     @Test
     public void testPass() {

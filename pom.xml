@@ -56,6 +56,12 @@
             <version>2.13.0</version>
             <scope>test</scope>
         </dependency>
+        <!--For taking values from .properties files-->
+        <dependency>
+            <groupId>org.aeonbits.owner</groupId>
+            <artifactId>owner</artifactId>
+            <version>1.0.10</version>
+        </dependency>
     </dependencies>
 
     <build>
