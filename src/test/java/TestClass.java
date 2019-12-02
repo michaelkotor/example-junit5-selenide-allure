@@ -7,8 +7,12 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
+@Execution(ExecutionMode.CONCURRENT)
 public class TestClass {
     @BeforeAll
     public static void config() {
@@ -54,6 +58,7 @@ public class TestClass {
         Assertions.assertTrue(selenideElement.exists());
     }
 
+    @RepeatedTest(5)
     @Test
     public void selenideElementErrorBeforeAssertFail() {
         Selenide.open("https://google.com");
@@ -61,6 +66,7 @@ public class TestClass {
         selenideElement.click();
         Assertions.assertTrue(true);
     }
+
 
     @Test
     public void selenideElementErrorBeforeErrorAssertFail() {
