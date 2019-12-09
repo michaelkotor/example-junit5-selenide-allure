@@ -18,6 +18,9 @@
         <junit-platform-surefire-provider.version>1.2.0</junit-platform-surefire-provider.version>
         <aspectj.version>1.8.10</aspectj.version>
         <allure-junit5.version>2.13.0</allure-junit5.version>
+
+        <runType>remote</runType>
+        <skipAutoTests>false</skipAutoTests>
     </properties>
 
     <dependencies>
@@ -74,6 +77,7 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
+                    <skipTests>${skipAutoTests}</skipTests>
                     <systemProperties>
                         <property>
                             <name>junit.jupiter.extensions.autodetection.enabled</name>
@@ -84,6 +88,11 @@
                             <value>${project.build.directory}/allure-results</value>
                         </property>
                     </systemProperties>
+                    <systemPropertyVariables>
+                        <runType>${runType}</runType>
+                        <name>junit.jupiter.extensions.autodetection.enabled</name>
+                        <value>true</value>
+                    </systemPropertyVariables>
                 </configuration>
                 <dependencies>
                     <dependency>

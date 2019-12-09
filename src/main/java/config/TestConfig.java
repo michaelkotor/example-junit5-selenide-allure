@@ -22,4 +22,10 @@ public interface TestConfig extends Config {
 
     @Key("selenide.savePageSource")
     boolean savePageSource();
+
+    @Key("selenide.enableVNC")
+    boolean enableVNC();
+
+    @Key("selenide.remoteUrl")
+    String remoteUrl();
 }
